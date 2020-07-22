@@ -14,6 +14,26 @@ Have a website interface to pick two actors, and then visualise the degrees of s
 5. Visualise paths in d3 graph type visualisation.
 6. Implement web interface *(the great unknown...)*
 
+## Setup
+
+1. Create the ES image using docker. There is a separate docker config for three nodes, if that floats your boat.
+```
+docker-compose up -d
+````
+2. Check that it's all up and running
+```
+curl -X GET "localhost:9200/_cat/nodes?v&pretty"
+```
+3. Check out Kibana
+```
+http://localhost:5601
+```
+3. Run setup.rb to download data and insert into ElasticSearch
+```
+ruby setup.rb
+```
+
+
 ## Inspiration
 
 * [The Oracle of Bacon](https://oracleofbacon.org/)
@@ -37,7 +57,13 @@ Have a website interface to pick two actors, and then visualise the degrees of s
 
 ## ToDo
 
-Well, all the above. Certain components have been tested, but need to go through step by step and do it properly.
+- [x] 1 Create ES database
+- [x] 2 Download IMDb dataset
+- [x] 3 Injest data into ES
+- [ ] 4 Write code to find paths between ActorA and ActorB
+- [ ] 5 Visualise paths in d3 graph type visualisation.
+- [ ] 6 Implement web interface
+
 Step 6 is the main one that illudes me at the moment.
 
 ## Notes
